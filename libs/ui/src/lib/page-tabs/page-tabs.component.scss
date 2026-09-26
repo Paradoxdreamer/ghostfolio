@@ -29,6 +29,11 @@
   }
 
   @media (max-width: 575.98px) {
+    // Keep the bottom tab bar above the iOS home indicator. Parent .page
+    // padding is overridden by the 100svh height used when hosting tabs.
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+
     @include mat.tabs-overrides(
       (
         container-height: 3rem
