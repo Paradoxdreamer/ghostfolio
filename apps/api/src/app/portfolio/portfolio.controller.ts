@@ -495,6 +495,7 @@ export class PortfolioController {
       accounts,
       assetClasses,
       dataSource,
+      groupBy,
       range,
       symbol,
       tags,
@@ -511,6 +512,7 @@ export class PortfolioController {
 
     const performanceInformation = await this.portfolioService.getPerformance({
       filters,
+      groupBy,
       userId,
       withExcludedAccounts,
       dateRange: range
@@ -632,8 +634,7 @@ export class PortfolioController {
     const holding = await this.portfolioService.getHolding({
       dataSource,
       symbol,
-      userId,
-      withExcludedActivities: true
+      userId
     });
 
     if (!holding) {
